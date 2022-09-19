@@ -1,18 +1,10 @@
 import React, { useState } from "react";
-import Logo from "../../../public/logo.svg";
-import {
-  Container,
-  Item,
-  LogoContainer,
-  Nav,
-  NavbarBurger,
-  NavItems,
-  SocialsContainer,
-} from "./NavbarStyles.js";
+import Logo from "../../../images/logo.png";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { RiMailLine } from "react-icons/ri";
 import { GrLinkedinOption } from "react-icons/gr";
 import Image from "next/image";
+import styles from "./navbar.module.scss";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
@@ -23,10 +15,10 @@ const Navbar = () => {
 
   return (
     <>
-      <Nav>
-        <Container>
-          <NavbarBurger
-            className={active ? "active" : " "}
+      <nav className={styles.navbar}>
+        <div className={`container ${styles.navContainer}`}>
+          <div
+            className={active ? styles.navbarBurgerActive : styles.navbarBurger}
             onClick={handleClick}
             role="button"
             tabIndex={0}
@@ -34,31 +26,60 @@ const Navbar = () => {
             <span />
             <span />
             <span />
-          </NavbarBurger>
-          <LogoContainer>
-            <Image src={Logo} alt="Main logo" priority width={40} height={24} />
-            ESTUDIO
-          </LogoContainer>
-          <NavItems className={active ? "active" : " "}>
-            <Item href="#aboutme">SOBRE MI</Item>
-            <Item href="#services">SERVICIOS</Item>
-            <Item href="#works">TRABAJOS</Item>
-            <Item href="#contactme">CONTACTO</Item>
-            <Item href="#information">INFORMACIÓN</Item>
-          </NavItems>
-          <SocialsContainer>
-            <a>
+          </div>
+          <div className={styles.logoContainer}>
+            <div className={styles.imgContainer}>
+              <Image src={Logo} alt="Main logo" priority placeholder="blur" />
+            </div>
+            <p>ESTUDIO</p>
+          </div>
+          <div className={active ? styles.navItemsActive : styles.navItems}>
+            <a className={styles.item} href="#aboutme">
+              SOBRE MI
+              <span />
+            </a>
+            <a className={styles.item} href="#sevices">
+              SERVICIOS
+              <span />
+            </a>
+            <a className={styles.item} href="#projects">
+              TRABAJOS
+              <span />
+            </a>
+            <a className={styles.item} href="#contactme">
+              CONTACTO
+              <span />
+            </a>
+            <a className={styles.item} href="#information">
+              INFORMACIÓN
+              <span />
+            </a>
+          </div>
+          <div className={styles.socialsContainer}>
+            <a
+              href="https://www.instagram.com/communitymanager_vf/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <AiOutlineInstagram />
             </a>
-            <a>
+            <a
+              href="mailto:estudiovfuy@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               <RiMailLine />
             </a>
-            <a>
+            <a
+              href="https://www.linkedin.com/in/victoria-fernandez-4727b81b2/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <GrLinkedinOption />
             </a>
-          </SocialsContainer>
-        </Container>
-      </Nav>
+          </div>
+        </div>
+      </nav>
     </>
   );
 };
