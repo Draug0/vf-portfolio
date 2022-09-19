@@ -6,6 +6,7 @@ export const Nav = styled.nav`
   width: 100vw;
   background-color: #f6f6f6;
   font-family: "Playfair Display", serif;
+  z-index: 9999;
 `;
 
 export const Container = styled.div`

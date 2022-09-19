@@ -41,7 +41,7 @@ const Navbar = () => {
           </LogoContainer>
           <NavItems className={active ? "active" : " "}>
             <Item href="#aboutme">SOBRE MI</Item>
-            <Item href="#sevices">SERVICIOS</Item>
+            <Item href="#services">SERVICIOS</Item>
             <Item href="#works">TRABAJOS</Item>
             <Item href="#contactme">CONTACTO</Item>
             <Item href="#information">INFORMACIÓN</Item>
