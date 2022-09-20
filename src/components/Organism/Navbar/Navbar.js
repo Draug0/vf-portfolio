@@ -38,7 +38,7 @@ const Navbar = () => {
               SOBRE MI
               <span />
             </a>
-            <a className={styles.item} href="#sevices">
+            <a className={styles.item} href="#services">
               SERVICIOS
               <span />
             </a>

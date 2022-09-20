@@ -1,33 +1,123 @@
+import { useState } from "react";
 import { BoldSpan } from "../../../../styled-component/styles";
-import { ContactMeFormParagraph, ContactMeFormImage, ContactMeFormContainer, ContactMeTextFieldMail, ContactMeTextFieldName, ContactMeTextFieldSurname, ContactMeTextFieldMessage, ContactMeButton } from "./ContactMeFormStyles";
-import ContactImage from "../../../../images/ContactImage.png";
-import Image from "next/image";
+import {
+  ContactMeFormParagraph,
+  ContactMeFormImage,
+  ContactMeFormContainer,
+  ContactMeTextFieldMail,
+  ContactMeTextFieldName,
+  ContactMeTextFieldSurname,
+  ContactMeTextFieldMessage,
+  ContactMeButton,
+} from "./ContactMeFormStyles";
 
 const ContactMeForm = () => {
-    return (
-        <ContactMeFormContainer>
-            <ContactMeFormParagraph>Si querés ponerte en contacto conmigo <BoldSpan>envía un mensaje</BoldSpan> dejando tu nombre, apellido y correo electrónico.</ContactMeFormParagraph>
+  const [sent, setSent] = useState(false);
+  const [values, setValues] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    message: "",
+  });
 
-            <ContactMeTextFieldName className="mt-4" id="name" label="Nombre" variant="filled"></ContactMeTextFieldName>
-            <ContactMeTextFieldSurname className="mt-4" id="surname" label="Apellido" variant="filled"></ContactMeTextFieldSurname>
-            <ContactMeTextFieldMail className="mt-4" id="email" label="Correo electrónico" variant="filled"></ContactMeTextFieldMail>
-            <ContactMeTextFieldMessage
-                className="mt-4"
-                id="message"
-                label="Mensaje"
-                variant="filled"
-                multiline
-                rows={4}
-            />
-            <ContactMeButton className="mt-4">ENVIAR</ContactMeButton>
-            <ContactMeFormImage className="ml-4">
-                <Image 
-                    src={ ContactImage } 
-                    alt={ "Imagen alusiva al formulario" }
-                />
-            </ContactMeFormImage>
-        </ContactMeFormContainer>
-    );
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target[3].value);
+
+    fetch("https://formsubmit.co/ajax/96f67177b47f0fe8622ae6f263bc3133", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        Nombre: e.target[0].value,
+        Apellido: e.target[1].value,
+        Email: e.target[2].value,
+        Mensaje: e.target[3].value,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSent(data.success);
+        setValues({
+          name: "",
+          surname: "",
+          email: "",
+          message: "",
+        });
+
+        setTimeout(() => {
+          setSent(false);
+        }, 2000);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} style={{ position: "relative" }}>
+      <ContactMeFormContainer>
+        <ContactMeFormParagraph>
+          Si querés ponerte en contacto conmigo{" "}
+          <BoldSpan>envía un mensaje</BoldSpan> dejando tu nombre, apellido y
+          correo electrónico.
+        </ContactMeFormParagraph>
+        {/* <input type="text" name="_honey" style={{ display: "none" }} />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="" /> */}
+
+        <ContactMeTextFieldName
+          className="mt-4"
+          id="name"
+          name="name"
+          label="Nombre"
+          variant="filled"
+          onChange={handleChange}
+          value={values.name}
+        ></ContactMeTextFieldName>
+        <ContactMeTextFieldSurname
+          className="mt-4"
+          id="surname"
+          name="surname"
+          label="Apellido"
+          variant="filled"
+          onChange={handleChange}
+          value={values.surname}
+        ></ContactMeTextFieldSurname>
+        <ContactMeTextFieldMail
+          className="mt-4"
+          id="email"
+          name="email"
+          label="Correo electrónico"
+          variant="filled"
+          onChange={handleChange}
+          value={values.email}
+        ></ContactMeTextFieldMail>
+        <ContactMeTextFieldMessage
+          className="mt-4"
+          id="message"
+          name="message"
+          label="Mensaje"
+          variant="filled"
+          multiline
+          rows={4}
+          onChange={handleChange}
+          value={values.message}
+        />
+        <ContactMeButton className={`mt4 ${sent ? "sent" : ""}`} type="submit">
+          {sent ? "¡ENVIADO!" : "ENVIAR"}
+        </ContactMeButton>
+        <ContactMeFormImage className="ml-4"></ContactMeFormImage>
+      </ContactMeFormContainer>
+    </form>
+  );
 };
 
 export default ContactMeForm;

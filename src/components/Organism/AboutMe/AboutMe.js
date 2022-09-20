@@ -1,29 +1,53 @@
 import { TitleSection, BoldSpan } from "../../../styled-component/styles";
-import { AboutMeContainer, AboutMePhoto, AboutMeContainerContent, AboutMeParagraph, AboutMeParagraphContainer } from "./AboutMeStyles";
+import {
+  AboutMeContainer,
+  AboutMePhoto,
+  AboutMeContainerContent,
+  AboutMeParagraph,
+  AboutMeParagraphContainer,
+} from "./AboutMeStyles";
 import Image from "next/image";
-import Photo from "../../../images/VictoriaPhoto.jpg";
+import Photo from "../../../images/VictoriaPhoto2.jpeg";
+import styles from "./aboutme.module.scss";
 
 const AboutMe = () => {
-    return (
-        <AboutMeContainer id="aboutme">
-            <article className="container">
-                <TitleSection>SOBRE MÍ</TitleSection>
-                <AboutMeContainerContent>
-                    <AboutMePhoto>
-                        <Image src={ Photo } alt={ "Foto Victoria Fernández" }/>
-                    </AboutMePhoto>
-                    <AboutMeParagraphContainer className="p-3">
-                        <AboutMeParagraph>Hola, mi nombre es <BoldSpan>Victoria Fernández</BoldSpan> y estudié Community Manager & Publicidad en Coderhouse.</AboutMeParagraph>
-                        <AboutMeParagraph>Actualmente me sigo formando en marketing digital porque me apasiona!</AboutMeParagraph>
-                        <AboutMeParagraph><BoldSpan>Nuestro trabajo es gestionar y manejar las redes sociales.</BoldSpan></AboutMeParagraph>
-                        <AboutMeParagraph>Lograremos llevar tu emprendimiento a otro nivel mediante estrategias de marketing, creando relaciones con los clientes y humanizando la marca.</AboutMeParagraph>
-                        <AboutMeParagraph>Con el fin de generar comunidad, atraer clientes potenciales y así aumentar las ventas de tu producto/servicio.</AboutMeParagraph>
-                        <AboutMeParagraph className="p-0 m-0"><BoldSpan>¿Preparado/a para llevar tu marca al siguiente nivel?</BoldSpan></AboutMeParagraph>
-                    </AboutMeParagraphContainer>
-                </AboutMeContainerContent>
-            </article>
-        </AboutMeContainer>
-    );
+  return (
+    <section className={styles.wrapper} id="aboutme">
+      <article className="container">
+        <h1>SOBRE MI</h1>
+        <div className={styles.contentContainer}>
+          <div className={styles.imgWrapper}>
+            <Image src={Photo} alt="Imagen" />
+          </div>
+          <div className={styles.textContainer}>
+            <p>
+              Hola, mi nombre es Victoria Fernandez y estudié Community Manager
+              & Publicidad en Coderhouse.
+            </p>
+            <p>
+              Actualmente me sigo formando en marketing digital porque me
+              apasiona!
+            </p>
+            <p>Nuestro trabajo es gestionar y manejar las redes sociales.</p>
+            <p>
+              Lograremos llevar tu emprendimiento a otro nivel mediante
+              estrategias de marketing, creando relaciones con los clientes y
+              humanizando la marca.
+            </p>
+            <p>
+              Con el fin de generar comunidad, atraer clientes potenciales y así
+              aumentar las ventas de tu producto/servicio.
+            </p>
+            <p>
+              <strong>
+                ¿Preparado/a para llevar tu marca al siguiente nivel?
+              </strong>
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+  );
 };
 
 export default AboutMe;
