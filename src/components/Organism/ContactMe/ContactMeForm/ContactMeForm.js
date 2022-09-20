@@ -1,5 +1,7 @@
 import { BoldSpan } from "../../../../styled-component/styles";
 import { ContactMeFormParagraph, ContactMeFormImage, ContactMeFormContainer, ContactMeTextFieldMail, ContactMeTextFieldName, ContactMeTextFieldSurname, ContactMeTextFieldMessage, ContactMeButton } from "./ContactMeFormStyles";
+import ContactImage from "../../../../images/ContactImage.png";
+import Image from "next/image";
 
 const ContactMeForm = () => {
     return (
@@ -18,7 +20,12 @@ const ContactMeForm = () => {
                 rows={4}
             />
             <ContactMeButton className="mt-4">ENVIAR</ContactMeButton>
-            <ContactMeFormImage className="ml-4"></ContactMeFormImage>
+            <ContactMeFormImage className="ml-4">
+                <Image 
+                    src={ ContactImage } 
+                    alt={ "Imagen alusiva al formulario" }
+                />
+            </ContactMeFormImage>
         </ContactMeFormContainer>
     );
 };

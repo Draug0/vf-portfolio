@@ -14,9 +14,8 @@ export const ContactMeSocialMediaDataContainer = styled.div`
 `;
 
 export const ContactMeSocialMediaImage = styled.div`
-    width: auto;
-    height: 211.29px;
-    background-color: #2C3748;
+    width: 100%;
+    height: auto;
     grid-area: image;
 `;
 

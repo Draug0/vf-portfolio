@@ -18,12 +18,18 @@ const Card = (props) => {
                             props.points?.map(point => {
                                 return (
                                     <CardPointItem className="pt-2">
-                                        <div>
-                                            <BsCheck size={ 20 }/>
-                                        </div>
+                                        <span>
+                                            <BsCheck 
+                                                size={ 20 }
+                                            />
+                                        </span>
                                         <p className="mx-1">
                                             { 
-                                                point.map(subpoint => <CardPointText id={ subpoint.id } variant={ subpoint.style }>{ subpoint.text }</CardPointText>) 
+                                                point.map(subpoint => <CardPointText 
+                                                        id={ subpoint.id } 
+                                                        variant={ subpoint.style }>{ subpoint.text }
+                                                        </CardPointText>
+                                                ) 
                                             }
                                         </p>
                                     </CardPointItem>
@@ -32,14 +38,14 @@ const Card = (props) => {
                         }
                     </CardPointContainer>
                     <CardDeliveryTime style={{ flex: "1 auto 1", flexGrow: 1 }} className="row"> 
-                        <div className="align-self-end d-flex flex-row">
-                            <div>
+                        <p className="align-self-end d-flex flex-row">
+                            <span>
                                 <MdOutlineWatchLater size={ 20 } />
-                            </div>
+                            </span>
                             <span className="mx-1">{ props.deliveryTime }</span>
-                        </div>
+                        </p>
                     </CardDeliveryTime>
-                    <CardButton style={{ flex: "1 auto 1" }}>
+                    <CardButton style={{ flex: "1 auto 1" }} href="#contactme">
                         CONSULTAR
                     </CardButton>
                 </CardBody>

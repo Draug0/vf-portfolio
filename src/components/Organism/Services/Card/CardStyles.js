@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CustomButton } from "../../../../styled-component/styles";
 
 export const CardColumn = styled.section`
 
@@ -15,25 +16,13 @@ export const CardHeader = styled.div`
     height: 168px;
 `;
 
-export const CardButton = styled.button`
+export const CardButton = styled(CustomButton)`
     width: 100%;
-    height: 48px;
+    height: 3rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: #2C3748;
-    border-radius: 15px;
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-
-    color: #F4E3E2;
 `;
 
 export const CardBody = styled.div`
@@ -42,11 +31,11 @@ export const CardBody = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-    font-family: 'Arsenica Trial';
+    font-family: 'Arsenica Trial Bold';
     font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 43px;
+    font-weight: bolder;
+    font-size: 2.25rem;
+    line-height: 2.6rem;
     display: flex;
     align-items: center;
     text-align: center;

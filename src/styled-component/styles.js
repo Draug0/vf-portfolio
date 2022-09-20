@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const TitleSection = styled.h3`
-    font-family: 'Arsenica Trial', serif;
+    font-family: 'Arsenica Trial Bold';
     font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    font-size: 32px;
+    font-weight: bolder;
+    font-size: 1.5em;
+    line-height: 1.6em;
     color: #2C3748;
     text-transform: uppercase;
 `;
@@ -23,4 +22,24 @@ export const Paragraph = styled.p`
 
 export const BoldSpan = styled.span`
     font-weight: bold;
+`;
+
+export const CustomButton = styled.button`
+    background: #2C3748;
+    border-radius: 15px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.2rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: #F4E3E2;
+
+    &:hover {
+        color: #2C3748;
+        background: #F4E3E2;
+    }
 `;

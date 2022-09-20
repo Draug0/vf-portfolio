@@ -1,9 +1,13 @@
 import { ContactMeSocialMediaItemContainer, ContactMeSocialMediaTitle, ContactMeSocialMediaSubtitle, ContactMeSocialMediaImage, ContactMeSocialMediaDataContainer } from "./ContactMeSocialMediaItemStyles";
+import Image from "next/image";
 
-const ContactMeSocialMediaItem = ({ title, contact }) => {
+
+const ContactMeSocialMediaItem = ({ title, contact, image }) => {
     return (
         <ContactMeSocialMediaItemContainer>
-            <ContactMeSocialMediaImage></ContactMeSocialMediaImage>
+            <ContactMeSocialMediaImage>
+                <Image src={ image } alt={ title } />
+            </ContactMeSocialMediaImage>
             <ContactMeSocialMediaDataContainer className="ml-2">
                 <ContactMeSocialMediaTitle>{ title }: </ContactMeSocialMediaTitle>
                 <ContactMeSocialMediaSubtitle>{ contact }</ContactMeSocialMediaSubtitle>
@@ -13,16 +17,3 @@ const ContactMeSocialMediaItem = ({ title, contact }) => {
 };
 
 export default ContactMeSocialMediaItem;
-
-/* <ContactMeSocialMediaItemContainer className="row mt-4">
-            <div className="col-auto">
-                <ContactMeSocialMediaImage></ContactMeSocialMediaImage>
-            </div>
-            <div className="col d-flex flex-column flex-wrap">
-                <div style={{ flexGrow: 1 }}></div>
-                <div>
-                    <ContactMeSocialMediaTitle>{ title }: </ContactMeSocialMediaTitle>
-                    <ContactMeSocialMediaSubtitle>{ contact }</ContactMeSocialMediaSubtitle>
-                </div>
-            </div>
-        </ContactMeSocialMediaItemContainer> */

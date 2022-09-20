@@ -1,19 +1,27 @@
-import { TitleSection, BoldSpan, Paragraph } from "../../../styled-component/styles";
-import { AboutMeContainer, AboutMePhoto, AboutMeContainerContent } from "./AboutMeStyles";
+import { TitleSection, BoldSpan } from "../../../styled-component/styles";
+import { AboutMeContainer, AboutMePhoto, AboutMeContainerContent, AboutMeParagraph, AboutMeParagraphContainer } from "./AboutMeStyles";
+import Image from "next/image";
+import Photo from "../../../images/VictoriaPhoto.jpg";
 
 const AboutMe = () => {
     return (
         <AboutMeContainer id="aboutme">
-            <TitleSection>Sobre mi</TitleSection>
-            <AboutMeContainerContent>
-                <AboutMePhoto />
-                <Paragraph>Hola, mi nombre es <BoldSpan>Victoria Fernandez</BoldSpan> y estudié Community Manager & Publicidad en Coderhouse.</Paragraph>
-                <Paragraph>Actualmente me sigo formando en marketing digital porque me apasiona!</Paragraph>
-                <Paragraph><BoldSpan>Nuestro trabajo es gestionar y manejar las redes sociales.</BoldSpan></Paragraph>
-                <Paragraph>Lograremos llevar tu emprendimiento a otro nivel mediante estrategias de marketing, creando relaciones con los clientes y humanizando la marca.</Paragraph>
-                <Paragraph>Con el fin de generar comunidad, atraer clientes potenciales y así aumentar las ventas de tu producto/servicio.</Paragraph>
-                <Paragraph><BoldSpan>¿Preparado/a para llevar tu marca al siguiente nivel?</BoldSpan></Paragraph>
-            </AboutMeContainerContent>
+            <article className="container">
+                <TitleSection>SOBRE MÍ</TitleSection>
+                <AboutMeContainerContent>
+                    <AboutMePhoto>
+                        <Image src={ Photo } alt={ "Foto Victoria Fernández" }/>
+                    </AboutMePhoto>
+                    <AboutMeParagraphContainer className="p-3">
+                        <AboutMeParagraph>Hola, mi nombre es <BoldSpan>Victoria Fernández</BoldSpan> y estudié Community Manager & Publicidad en Coderhouse.</AboutMeParagraph>
+                        <AboutMeParagraph>Actualmente me sigo formando en marketing digital porque me apasiona!</AboutMeParagraph>
+                        <AboutMeParagraph><BoldSpan>Nuestro trabajo es gestionar y manejar las redes sociales.</BoldSpan></AboutMeParagraph>
+                        <AboutMeParagraph>Lograremos llevar tu emprendimiento a otro nivel mediante estrategias de marketing, creando relaciones con los clientes y humanizando la marca.</AboutMeParagraph>
+                        <AboutMeParagraph>Con el fin de generar comunidad, atraer clientes potenciales y así aumentar las ventas de tu producto/servicio.</AboutMeParagraph>
+                        <AboutMeParagraph className="p-0 m-0"><BoldSpan>¿Preparado/a para llevar tu marca al siguiente nivel?</BoldSpan></AboutMeParagraph>
+                    </AboutMeParagraphContainer>
+                </AboutMeContainerContent>
+            </article>
         </AboutMeContainer>
     );
 };

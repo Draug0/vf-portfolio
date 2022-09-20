@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import TextField from '@mui/material/TextField';
-import { Paragraph } from "../../../../styled-component/styles";
+import { CustomButton, Paragraph } from "../../../../styled-component/styles";
 
 export const CustomTextField = styled(TextField)`
     background: #FFFFFF;
@@ -16,7 +16,7 @@ export const ContactMeFormContainer = styled.div`
     grid-template-areas:    "paragraph      paragraph   paragraph   image"
                             "name           surname     email       image"
                             "message        message     message     image"
-                            "submit         submit      submit      .";
+                            "submit         .           .           .";
 
     @media (max-width: 992px) {
         grid-template-areas:    "paragraph"
@@ -54,30 +54,18 @@ export const ContactMeTextFieldMessage = styled(CustomTextField)`
     grid-area: message;
 `;
 
-export const ContactMeButton = styled.button`
+export const ContactMeButton = styled(CustomButton)`
     background: #2C3748;
     border-radius: 15px;
     width: 100%;
     height: 48px;
 
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-
-    color: #F4E3E2;
-
     grid-area: submit;
 `;
 
 export const ContactMeFormImage = styled.div`
-    width: 384px;
+    width: 100%;
     height: auto;
-    background-color: #2C3748;
-
     grid-area: image;
 
     @media (max-width: 992px) {

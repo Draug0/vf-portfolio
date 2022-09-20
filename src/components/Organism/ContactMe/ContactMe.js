@@ -6,10 +6,12 @@ import { ContactMeContainer } from "./ContactMeStyles";
 
 const ContactMe = () => {
     return (
-        <ContactMeContainer id="contactme">
-            <TitleSection>Contacto</TitleSection>
-            <ContactMeForm></ContactMeForm>
-            <ContactMeSocialMedia/>
+        <ContactMeContainer id="contactme" name="contactme">
+            <article className="container">
+                <TitleSection>CONTACTO</TitleSection>
+                <ContactMeForm></ContactMeForm>
+                <ContactMeSocialMedia/>
+            </article>
         </ContactMeContainer>
     );
 };  

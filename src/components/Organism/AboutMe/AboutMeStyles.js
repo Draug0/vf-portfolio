@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Paragraph } from "../../../styled-component/styles";
 
 export const AboutMeTitle = styled.h1`
     font-family: 'Noto Serif Display';
@@ -25,14 +26,32 @@ export const AboutMeContainer = styled.section`
 `;  
 
 export const AboutMePhoto = styled.div`
-    height: 417px;
-    width: 389px;
-    
-    background-color: black;
+    @media (max-width: 992px) {
+        height: auto;
+        width: 100%;
+    }
 `;
 
 export const AboutMeContainerContent = styled.div`
-    height: 417px;  
+    height: 415px;  
     width: auto; 
     display: inline;
+`;
+
+export const AboutMeParagraph = styled(Paragraph)`
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: 0.15px;
+    color: #000000;
+    
+    @media (max-width: 768px) {
+        font-size: 0.9rem;
+    }
+`;
+
+export const AboutMeParagraphContainer = styled.section`
+    background: #F4E3E2;
 `;
