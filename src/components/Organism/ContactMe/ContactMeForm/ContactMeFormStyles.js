@@ -21,6 +21,7 @@ export const ContactMeFormContainer = styled.div`
     "submit         .           .           .";
 
   @media (max-width: 992px) {
+    grid-template-columns: 1fr;
     grid-template-areas:
       "paragraph"
       "name"
