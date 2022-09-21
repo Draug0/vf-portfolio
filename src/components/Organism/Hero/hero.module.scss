@@ -12,3 +12,18 @@
   height: 100%;
   background-color: black;
 }
+
+.heroContainer {
+  width: 100%;
+  background: #f4e3e2 url(./../../../images/HeroImage.png) center center no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 50vh;
+  z-index: 0;
+
+  filter: blur(1px) opacity(20%) brightness(1.25);
+  
+  @media (max-width: 768px) {
+    min-height: 100vh;
+  }
+}

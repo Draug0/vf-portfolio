@@ -8,15 +8,19 @@ import Mail from '../../../../images/Correo.png';
 const ContactMeSocialMedia = () => {
     return (
         <ContactMeSocialMediaContainer className="mt-4">
-            <Paragraph styyle={{ width: "307px" }}className="col">O si no contactame a través de mis <BoldSpan>redes sociales</BoldSpan></Paragraph>
+            <Paragraph className="d-flex align-items-center" style={{ flex: 1 }}>
+                <span>
+                    <span>O si no contactame a través de mis </span><BoldSpan>redes sociales</BoldSpan>
+                </span>
+            </Paragraph>
             <ContactMeSocialMediaItem 
-                className="col" 
+                style={{ flex: 1 }}
                 image={ Mail } 
                 title={ "Correo electrónico" } 
                 contact={ "estudiovfuy@gmail.com" }>
             </ContactMeSocialMediaItem>
-            <ContactMeSocialMediaItem 
-                className="col" 
+            <ContactMeSocialMediaItem
+                style={{ flex: 1 }}
                 image={ Instagram } 
                 title={ "Instagram" } 
                 contact={ "@communitymanager_vf" }>

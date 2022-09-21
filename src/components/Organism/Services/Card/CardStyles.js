@@ -8,6 +8,10 @@ export const CardColumn = styled.section`
 export const CardContainer = styled.div`
     border-radius: 15px;
     min-height: 768px;
+
+    &:hover {
+        box-shadow: 8px 8px 4px 4px rgba(0, 0, 0, 0.15), inset 4px 4px 4px rgba(255, 255, 255, 0.25);
+    }
 `;
 
 export const CardHeader = styled.div`

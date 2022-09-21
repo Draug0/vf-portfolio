@@ -64,9 +64,10 @@ export const ContactMeButton = styled(CustomButton)`
 `;
 
 export const ContactMeFormImage = styled.div`
-    width: 100%;
-    height: auto;
+    height: 100%;
+    width: auto;
     grid-area: image;
+    padding-left: 1.5rem !important;
 
     @media (max-width: 992px) {
         display: none;

@@ -5,23 +5,19 @@ import {
   HeroTitleContainer,
   HeroImage,
 } from "./HeroStyles";
-import HeroVideo from "../../../images/HeroImage.png";
-import Image from "next/image";
+
+import styles from "./hero.module.scss";
 
 const Hero = () => {
   return (
-    <HeroContainer className="d-flex justify-content-center align-items-center">
-      <div className="position-relative" style={{ height: "100%" }}>
-        <HeroImage
-          className="img-fluid"
-          src={HeroVideo}
-          alt="Video presentación"
-        />
+    <HeroContainer className={`d-flex position-relative `}>
         <HeroTitleContainer>
-          <HeroTitle className="text-center">Victoria Fernandez</HeroTitle>
-          <HeroSubTitle className="text-center">Community Manager</HeroSubTitle>
+            <HeroTitle className="text-center">Victoria Fernandez</HeroTitle>
+            <HeroSubTitle className="text-center">Community Manager</HeroSubTitle>
         </HeroTitleContainer>
-      </div>
+        <div className={`${ styles.heroContainer }`}>
+            
+        </div>
     </HeroContainer>
   );
 };

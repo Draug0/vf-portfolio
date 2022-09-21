@@ -8,7 +8,7 @@ const ContactMeSocialMediaItem = ({ title, contact, image }) => {
             <ContactMeSocialMediaImage>
                 <Image src={ image } alt={ title } />
             </ContactMeSocialMediaImage>
-            <ContactMeSocialMediaDataContainer className="ml-2">
+            <ContactMeSocialMediaDataContainer className="p-2">
                 <ContactMeSocialMediaTitle>{ title }: </ContactMeSocialMediaTitle>
                 <ContactMeSocialMediaSubtitle>{ contact }</ContactMeSocialMediaSubtitle>
             </ContactMeSocialMediaDataContainer>

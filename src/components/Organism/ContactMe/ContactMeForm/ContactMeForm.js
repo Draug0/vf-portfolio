@@ -11,6 +11,10 @@ import {
   ContactMeButton,
 } from "./ContactMeFormStyles";
 
+import ContactImage from './../../../../images/ContactImage.png';
+import Image from "next/image";
+
+
 const ContactMeForm = () => {
   const [sent, setSent] = useState(false);
   const [values, setValues] = useState({
@@ -62,16 +66,13 @@ const ContactMeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ position: "relative" }}>
+    <form onSubmit={handleSubmit} >
       <ContactMeFormContainer>
         <ContactMeFormParagraph>
           Si querés ponerte en contacto conmigo{" "}
           <BoldSpan>envía un mensaje</BoldSpan> dejando tu nombre, apellido y
           correo electrónico.
         </ContactMeFormParagraph>
-        {/* <input type="text" name="_honey" style={{ display: "none" }} />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="" /> */}
 
         <ContactMeTextFieldName
           className="mt-4"
@@ -111,10 +112,16 @@ const ContactMeForm = () => {
           onChange={handleChange}
           value={values.message}
         />
-        <ContactMeButton className={`mt4 ${sent ? "sent" : ""}`} type="submit">
+        <ContactMeButton className={`mt-4 ${sent ? "sent" : ""}`} type="submit">
           {sent ? "¡ENVIADO!" : "ENVIAR"}
         </ContactMeButton>
-        <ContactMeFormImage className="ml-4"></ContactMeFormImage>
+        <ContactMeFormImage>
+          <Image 
+            style={{ width: "auto", height: "100%" }}
+            src={ ContactImage } 
+            alt={ "Imagen alusiva al formulario" }
+          />
+        </ContactMeFormImage>
       </ContactMeFormContainer>
     </form>
   );

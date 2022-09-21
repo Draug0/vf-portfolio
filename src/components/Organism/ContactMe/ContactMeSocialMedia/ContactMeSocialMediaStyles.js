@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ContactMeSocialMediaContainer = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: justify-content-between;
 
     @media (max-width: 992px) {
         flex-direction: column;
