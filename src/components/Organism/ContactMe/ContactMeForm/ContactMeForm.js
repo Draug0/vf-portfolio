@@ -11,11 +11,11 @@ import {
   ContactMeButton,
 } from "./ContactMeFormStyles";
 
-import ContactImage from './../../../../images/ContactImage.png';
+import ContactImage from "./../../../../images/ContactImage.png";
 import Image from "next/image";
 
-
 const ContactMeForm = () => {
+  const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [values, setValues] = useState({
     name: "",
@@ -31,42 +31,66 @@ const ContactMeForm = () => {
     });
   };
 
+  const handleValidate = (name, surname, email, message) => {
+    return (
+      name.length > 0 &&
+      surname.length > 0 &&
+      email.length > 0 &&
+      message.length > 0
+    );
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target[3].value);
 
-    fetch("https://formsubmit.co/ajax/96f67177b47f0fe8622ae6f263bc3133", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        Nombre: e.target[0].value,
-        Apellido: e.target[1].value,
-        Email: e.target[2].value,
-        Mensaje: e.target[3].value,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setSent(data.success);
-        setValues({
-          name: "",
-          surname: "",
-          email: "",
-          message: "",
-        });
+    const valid = handleValidate(
+      e.target[0].value,
+      e.target[1].value,
+      e.target[2].value,
+      e.target[3].value
+    );
 
-        setTimeout(() => {
-          setSent(false);
-        }, 2000);
+    if (valid) {
+      setLoading(true);
+      fetch(`https://formsubmit.co/ajax/${process.env.NEXT_PUBLIC_EMAIL}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          Nombre: e.target[0].value,
+          Apellido: e.target[1].value,
+          Email: e.target[2].value,
+          Mensaje: e.target[3].value,
+          _honey: "",
+        }),
       })
-      .catch((error) => console.log(error));
+        .then((response) => response.json())
+        .then((data) => {
+          setSent(data.success);
+          setValues({
+            name: "",
+            surname: "",
+            email: "",
+            message: "",
+          });
+
+          setTimeout(() => {
+            setSent(false);
+          }, 2000);
+
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit}>
       <ContactMeFormContainer>
         <ContactMeFormParagraph>
           Si querés ponerte en contacto conmigo{" "}
@@ -79,27 +103,33 @@ const ContactMeForm = () => {
           id="name"
           name="name"
           label="Nombre"
+          type="text"
           variant="filled"
           onChange={handleChange}
           value={values.name}
+          required
         ></ContactMeTextFieldName>
         <ContactMeTextFieldSurname
           className="mt-4"
           id="surname"
           name="surname"
           label="Apellido"
+          type="text"
           variant="filled"
           onChange={handleChange}
           value={values.surname}
+          required
         ></ContactMeTextFieldSurname>
         <ContactMeTextFieldMail
           className="mt-4"
           id="email"
           name="email"
           label="Correo electrónico"
+          type="email"
           variant="filled"
           onChange={handleChange}
           value={values.email}
+          required
         ></ContactMeTextFieldMail>
         <ContactMeTextFieldMessage
           className="mt-4"
@@ -111,17 +141,32 @@ const ContactMeForm = () => {
           rows={4}
           onChange={handleChange}
           value={values.message}
+          required
         />
-        <ContactMeButton className={`mt-4 ${sent ? "sent" : ""}`} type="submit">
-          {sent ? "¡ENVIADO!" : "ENVIAR"}
+        <ContactMeButton className="mt4" type={loading ? "button" : "submit"}>
+          {loading ? (
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          ) : (
+            "ENVIAR"
+          )}
         </ContactMeButton>
         <ContactMeFormImage>
-          <Image 
-            src={ ContactImage } 
-            alt={ "Imagen alusiva al formulario" }
-          />
+          <Image src={ContactImage} alt={"Imagen alusiva al formulario"} />
         </ContactMeFormImage>
       </ContactMeFormContainer>
+      <div className="toast-container position-fixed top-50 start-50 translate-middle p-3">
+        <div
+          id="liveToast"
+          className={`toast ${sent ? "show" : ""}`}
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div className="toast-body">Mensaje enviado</div>
+        </div>
+      </div>
     </form>
   );
 };
