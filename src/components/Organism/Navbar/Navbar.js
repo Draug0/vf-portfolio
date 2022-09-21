@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../../images/logo.png";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { RiMailLine } from "react-icons/ri";
-import { GrLinkedinOption } from "react-icons/gr";
+import { AiFillLinkedin } from "react-icons/ai";
 import Image from "next/image";
 import styles from "./navbar.module.scss";
 
@@ -75,7 +75,7 @@ const Navbar = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <GrLinkedinOption />
+              <AiFillLinkedin />
             </a>
           </div>
         </div>

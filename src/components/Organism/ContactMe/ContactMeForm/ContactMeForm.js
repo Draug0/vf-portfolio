@@ -132,7 +132,6 @@ const ContactMeForm = () => {
           required
         ></ContactMeTextFieldMail>
         <ContactMeTextFieldMessage
-          className="mt-4"
           id="message"
           name="message"
           label="Mensaje"
