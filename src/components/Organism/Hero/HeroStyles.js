@@ -2,7 +2,11 @@ import styled from "styled-components";
 import Image from "next/image";
 
 export const HeroContainer = styled.div`
-  
+  height: calc(100vh);
+
+  @media (min-height: 769px) {
+    height: calc(100vh - 86px);
+  }
 `;
 
 export const HeroTitle = styled.div`
@@ -36,13 +40,13 @@ export const HeroSubTitle = styled.div`
 `;
 
 export const HeroTitleContainer = styled.div`
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    z-index: 2;
+  z-index: 2;
 `;
 
 export const HeroImage = styled(Image)`

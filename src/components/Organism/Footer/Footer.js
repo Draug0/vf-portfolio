@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./footer.module.scss";
-import { AiOutlineInstagram } from "react-icons/ai";
+import { AiOutlineInstagram, AiFillLinkedin } from "react-icons/ai";
 import { RiMailLine } from "react-icons/ri";
-import { GrLinkedinOption } from "react-icons/gr";
 
 const Footer = () => {
   return (
@@ -37,7 +36,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <GrLinkedinOption />
+                <AiFillLinkedin />
                 Linkedin
               </a>
             </li>

@@ -18,12 +18,10 @@
   background: #f4e3e2 url(./../../../images/HeroImage.png) center center no-repeat;
   background-size: cover;
   position: relative;
-  min-height: 50vh;
+  height: 100%;
+  width: 100%;
+
   z-index: 0;
 
-  filter: blur(1px) opacity(20%) brightness(1.25);
-  
-  @media (max-width: 768px) {
-    min-height: 100vh;
-  }
+  filter: opacity(20%) brightness(1.25);
 }
