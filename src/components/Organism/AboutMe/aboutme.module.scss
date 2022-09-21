@@ -1,0 +1,90 @@
+.wrapper {
+  margin: 40px 0;
+
+  font-size: 16px;
+
+  @media (min-width: 426px) {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-family: 'Arsenica Trial Bold';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 1.5em;
+    line-height: 1.6em;
+    color: #2C3748;
+  }
+
+  p {
+    font-family: 'Noto Serif Display';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.1em;
+    letter-spacing: 0.03em;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+}
+
+.contentContainer {
+  transform: translateX(-70px);
+  opacity: 0;
+  transition: transform 0.7s ease-out, opacity 0.4s ease-out;
+
+  width: 100%;
+  height: auto;
+  /* display: grid;
+  grid-template-columns: 1fr; */
+
+  @media (min-width: 769px) {
+    /* grid-template-columns: 2fr 3fr; */
+    clip-path: polygon(30px 0%,
+        100% 0%,
+        calc(100% - 30px) 100%,
+        0% 100%)
+  }
+
+  background: #f4e3e2;
+}
+
+.imgWrapper {
+  width: 100%;
+  height: 200px;
+  background: url(../../../images/VictoriaPhoto.jpg) no-repeat center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  @media (min-width: 769px) {
+    width: 35%;
+    height: 420px;
+    float: left;
+    clip-path: polygon(0% 0%,
+        100% 0%,
+        calc(100% - 30px) 100%,
+        0% 100%);
+    shape-outside: polygon(30px 0%, 100% 0%, calc(100% - 30px) 100%, 0% 100%);
+    margin-right: 15px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 30%;
+    height: 317px;
+  }
+}
+
+.textContainer {
+  height: 100%;
+  padding: 20px;
+
+  p:last-child {
+    margin-top: 30px;
+  }
+
+  @media (min-width: 769px) {
+    padding: 10px 30px;
+  }
+}

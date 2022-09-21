@@ -1,0 +1,97 @@
+.imagesGrid {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    "iga1 iga1 iga2 iga2 iga2"
+    "iga3 iga3 iga3 iga4 iga4"
+    "wide wide wide wide wide"
+    "sqr sqr sqr sqr sqr";
+  gap: 10px;
+  align-items: center;
+  justify-items: center;
+
+  &>div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 1.5s ease-out, opacity 1.5s ease-out;
+
+    & image {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  @media (min-width: 769px) {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas:
+      "iga1 iga1 iga2 iga2 iga2 iga4 iga4"
+      "wide wide wide wide iga3 iga3 iga3"
+      "sqr sqr sqr sqr iga3 iga3 iga3";
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+      "iga1 iga1 iga2 iga2 iga2 iga4 iga4 iga3 iga3"
+      "wide wide wide wide wide wide sqr sqr sqr"
+      "bigGa bigGa bigGa bigGa bigGa bigGa sqr sqr sqr";
+  }
+}
+
+.iga1 {
+  grid-area: iga1;
+}
+
+.iga2 {
+  grid-area: iga2;
+}
+
+.fa {
+  grid-area: iga3;
+}
+
+.iga4 {
+  grid-area: iga4;
+}
+
+.wide {
+  grid-area: wide;
+  flex-direction: column;
+
+  &>div {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.sqr {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 5px;
+  grid-area: sqr;
+}
+
+.bigGa {
+  display: none !important;
+
+  @media (min-width: 1200px) {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    grid-area: bigGa;
+  }
+}
