@@ -67,3 +67,15 @@
     }
   }
 }
+
+.animated {
+  transform: translateX(70px);
+  opacity: 0;
+  transition: transform 0.7s ease-out, opacity 0.4s ease-out;
+}
+
+.animated2 {
+  transform: translateX(-70px);
+  opacity: 0;
+  transition: transform 0.7s ease-out, opacity 0.4s ease-out;
+}
