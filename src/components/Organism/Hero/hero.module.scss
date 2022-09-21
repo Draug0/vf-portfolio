@@ -15,13 +15,22 @@
 
 .heroContainer {
   width: 100%;
-  background: #f4e3e2 url(./../../../images/HeroImage.png) center center no-repeat;
-  background-size: cover;
   position: relative;
-  height: 100%;
-  width: 100%;
+  height: calc(100vh - 56px);
+
+  @media (min-width: 769px) {
+    height: calc(100vh - 86px);
+  }
 
   z-index: 0;
 
   filter: opacity(20%) brightness(1.25);
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+  }
 }
