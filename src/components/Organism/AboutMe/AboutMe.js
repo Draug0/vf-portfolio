@@ -9,7 +9,7 @@ const AboutMe = () => {
         <Controller>
           <Scene
             triggerElement={`.${styles.contentContainer}`}
-            triggerHook={0.6}
+            triggerHook={0.9}
             reverse={true}
             classToggle={`fade-in`}
           >

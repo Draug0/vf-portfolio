@@ -34,7 +34,10 @@ const Card = (props) => {
               return (
                 <CardPointItem key={index} className="pt-2">
                   <span>
-                    <BsCheck size={20} />
+                    <BsCheck 
+                        className="iconHover" 
+                        size={20} 
+                    />
                   </span>
                   <p className="mx-1">
                     {point.map((subpoint, index) => (
@@ -57,7 +60,9 @@ const Card = (props) => {
           >
             <span className="align-self-end d-flex flex-row">
               <span>
-                <MdOutlineWatchLater size={20} />
+                <MdOutlineWatchLater 
+                    className="iconHover"
+                    size={20} />
               </span>
               <span className="mx-1">{props.deliveryTime}</span>
             </span>

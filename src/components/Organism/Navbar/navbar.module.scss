@@ -93,6 +93,10 @@
   text-decoration: none;
   color: #000;
 
+  &:hover {
+    color: #000;
+  }
+
   @media (min-width: 769px) {
     flex-direction: row;
     padding: 0;

@@ -117,7 +117,6 @@ const ContactMeForm = () => {
         </ContactMeButton>
         <ContactMeFormImage>
           <Image 
-            style={{ width: "auto", height: "100%" }}
             src={ ContactImage } 
             alt={ "Imagen alusiva al formulario" }
           />

@@ -13,7 +13,7 @@ const Services = () => {
     <ServicesContainer id="services">
       <article className="container">
         <TitleSection>SERVICIOS</TitleSection>
-        <div className="row">
+        <div className="row" style={{ width: "100%", margin: 0 }}>
           {LIST_PACKAGES.map((item, index) => (
             <Card key={index} id={item.id} className="col-md-4" {...item} />
           ))}

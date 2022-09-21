@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const ContactMeSocialMediaItemContainer = styled.section`
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:    "image  ."
                             "image  social-media-data";
 
-    @media (max-width: 769px) {
-        grid-template-columns: auto auto;
+    @media (max-width: 1200px) {
+        grid-template-columns: auto 1fr;
     }
 `;
 

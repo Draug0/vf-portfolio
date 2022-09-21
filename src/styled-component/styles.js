@@ -25,7 +25,9 @@ export const BoldSpan = styled.span`
 `;
 
 export const CustomButton = styled.button`
+    transition: all 0.1s ease-out;
     background: #2C3748;
+    border: 1px solid #2C3748;
     border-radius: 15px;
 
     font-family: 'Roboto';
@@ -41,5 +43,6 @@ export const CustomButton = styled.button`
     &:hover {
         color: #2C3748;
         background: #F4E3E2;
+        border: 1px solid #F4E3E2;
     }
 `;

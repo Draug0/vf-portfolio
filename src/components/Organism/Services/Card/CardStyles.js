@@ -5,19 +5,10 @@ export const CardColumn = styled.section`
 
 `;
 
-export const CardContainer = styled.div`
-    border-radius: 15px;
-    min-height: 768px;
-
-    &:hover {
-        box-shadow: 8px 8px 4px 4px rgba(0, 0, 0, 0.15), inset 4px 4px 4px rgba(255, 255, 255, 0.25);
-    }
-`;
-
 export const CardHeader = styled.div`
     background: #F4E3E2;
     border-radius: 15px 15px 0px 0px;
-    height: 168px;
+    height: 10rem;
 `;
 
 export const CardButton = styled(CustomButton)`
@@ -104,4 +95,28 @@ export const CardPointContainer = styled.div`
 
 export const CardPointText = styled.span`
     ${ props => props.variant === 'bold' ? 'font-weight: bold' : '' }
+`;
+
+export const CardContainer = styled.div`
+    transition: all 0.2s ease-out;
+    border-radius: 15px;
+    height: 100%;
+    border: none;
+
+    &:hover {
+        box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.2);
+
+        & ${ CardPointItem } {
+            & svg {
+                color: #31B610;
+            }
+        }
+
+        & ${ CardDeliveryTime } {
+            & svg {
+                color: #31B610;
+            }
+    }
+
+
 `;

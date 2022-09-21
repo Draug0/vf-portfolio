@@ -16,7 +16,7 @@ const Information = () => {
           <Controller>
             <Scene
               triggerElement={`.${styles.animated}`}
-              triggerHook={0.7}
+              triggerHook={0.9}
               reverse={true}
               classToggle={`fade-in`}
             >
@@ -90,7 +90,7 @@ const Information = () => {
           <Controller>
             <Scene
               triggerElement={`.${styles.animated2}`}
-              triggerHook={0.7}
+              triggerHook={0.9}
               reverse={true}
               classToggle={`fade-in`}
             >
