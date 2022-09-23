@@ -59,12 +59,14 @@ const Card = (props) => {
             className="row"
           >
             <span className="align-self-end d-flex flex-row">
-              <span>
-                <MdOutlineWatchLater 
-                    className="iconHover"
-                    size={20} />
+              <span className="d-flex align-items-center">
+                <span>
+                  <MdOutlineWatchLater 
+                      className="iconHover"
+                      size={20} />
+                </span>
+                <span className="mx-1">{props.deliveryTime}</span>
               </span>
-              <span className="mx-1">{props.deliveryTime}</span>
             </span>
           </CardDeliveryTime>
           <CardButton style={{ flex: "1 auto 1" }} href="#contactme">

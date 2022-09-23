@@ -21,7 +21,7 @@ const Services = () => {
         <CustomAdviceParagraph className="mt-4">
           *Por cada reel adicional se cobra un monto extra.
         </CustomAdviceParagraph>
-        <CustomParagraph className="d-flex flex-row">
+        <CustomParagraph className="d-flex flex-row align-items-center">
           <MdOutlineLocalAtm size={30} />
           <span className="mx-1">
             Al contratar el servicio se abona el paquete solicitado mediante
